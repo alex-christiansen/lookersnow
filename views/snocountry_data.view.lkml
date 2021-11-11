@@ -129,11 +129,11 @@ view: snocountry_data {
   dimension: last_snow_fall_amount {
     type: number
     group_label: "Snow Details"
-    sql: ${TABLE}.lastSnowFallAmount ;;
+    sql: CAST(${TABLE}.lastSnowFallAmount AS numeric);;
   }
 
   dimension: last_snow_fall_date {
-    type: date
+    type: string
     group_label: "Snow Details"
     sql: ${TABLE}.lastSnowFallDate ;;
   }
@@ -485,7 +485,7 @@ view: snocountry_data {
   dimension: season_total {
     type: number
     group_label: "Snow Details"
-    sql: ${TABLE}.seasonTotal ;;
+    sql: ${TABLE}.seasonTotal;;
   }
 
   dimension: secondary_surface_condition {
