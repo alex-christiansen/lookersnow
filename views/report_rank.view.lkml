@@ -16,6 +16,7 @@ view: report_rank {
 
   dimension: report_rank {
     type: number
+    label: "View only most recent report data?"
     sql: ${TABLE}.report_rank ;;
   }
 

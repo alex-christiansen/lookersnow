@@ -190,7 +190,7 @@ view: snocountry_data {
   dimension: max_open_down_hill_acres {
     type: number
     group_label: "Currently Open"
-    sql: ${TABLE}.maxOpenDownHillAcres ;;
+    sql: SAFE_CAST(${TABLE}.maxOpenDownHillAcres AS numeric);;
   }
 
   dimension: max_open_down_hill_lifts {
@@ -302,7 +302,7 @@ view: snocountry_data {
     type: number
     value_format: "0 \" Acres\""
     group_label: "Currently Open"
-    sql: ${TABLE}.openDownHillAcres ;;
+    sql: SAFE_CAST(${TABLE}.openDownHillAcres AS numeric) ;;
   }
 
   dimension: open_down_hill_lifts {
@@ -336,6 +336,17 @@ view: snocountry_data {
     type: string
     group_label: "Currently Open"
     sql: ${TABLE}.operatingStatus ;;
+  }
+
+  dimension: open_acre_percentage {
+    type: number
+    sql: 1.0*${open_down_hill_acres} / nullif(${max_open_down_hill_acres},0);;
+    value_format_name: percent_0
+  }
+
+  measure: avg_open_percentage {
+    type:  average
+    sql:  ${open_acre_percentage};;
   }
 
   dimension: predicted_snow_fall_24_hours {
