@@ -25,3 +25,8 @@ explore: snocountry_data {
   sql_always_where: ${report_rank.report_rank} = 1 ;;
 
 }
+
+explore: snocountry_data2 {
+  label: "Historical Report Data"
+  view_name: snocountry_data
+}
