@@ -6,6 +6,8 @@ view: report_rank {
           snocountry_data.resortName  AS snocountry_data_resort_name,
               (DATE(snocountry_data.reportDateTime , 'America/Denver')) AS snocountry_data_report_date_date
       FROM `snow_data.snocountry_data` AS snocountry_data;;
+    publish_as_db_view: yes
+    # persist_for: "1 minutes"
 
   }
 
