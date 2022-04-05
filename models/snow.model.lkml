@@ -8,6 +8,11 @@ datagroup: snow_default_datagroup {
   max_cache_age: "24 hour"
 }
 
+access_grant: can_see_open_acres {
+  user_attribute: can_see_open_acres
+  allowed_values: ["Yes"]
+}
+
 persist_with: snow_default_datagroup
 
 explore: snocountry_data {

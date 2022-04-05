@@ -299,6 +299,7 @@ view: snocountry_data {
   }
 
   dimension: open_down_hill_acres {
+    required_access_grants: [can_see_open_acres]
     type: number
     value_format: "0 \" Acres\""
     group_label: "Currently Open"
